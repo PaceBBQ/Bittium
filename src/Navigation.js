@@ -1,4 +1,3 @@
-//import './Navigation.css';
 import NavigationItem from './NavigationItem';
 import React from 'react';
 import { Subreddit } from './types';
