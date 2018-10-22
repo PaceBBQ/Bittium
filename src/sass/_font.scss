@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Rubik');
+//font variables
+$rubik: 'Rubik', sans-serif;
+$roboto: 'Roboto' , sans-serif;
+
+body {
+    font-family: $roboto;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $rubik;
+}
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+  }
+  

@@ -1,4 +1,3 @@
-//import './StoryList.css';
 import React from 'react';
 import { Story } from './types';
 
@@ -6,18 +5,23 @@ interface Props {
   items: Array<Story>;
 }
 
-// Because this component has no state and needs no instance methods, it is implemented as a
-// [stateless functional component][0], i.e. a plain JavaScript function.
-//
-// [0]: https://reactjs.org/docs/components-and-props.html#functional-and-class-components
+// No state and doesn't need instance
+// It will pe implemented as a stateless function, i.e. a plain javascript function.
+
 export default function StoryList(props: Props) {
   return (
-    <table>
+    <table className="table table-dark">
+      <thead>
+        <tr>
+          <th>Votes</th>
+          <th>Topic</th>
+        </tr>
+      </thead>
       <tbody>
         {props.items.map(item => (
           <tr key={item.data.id}>
             <td>
-              <p className="score">{item.data.score}</p>
+              <p className="votes">{item.data.score}</p>
             </td>
             <td>
               <p className="title">

@@ -1,21 +1,20 @@
-import './App.css';
 import { ResponseStories, ResponseSubreddits, Story, Subreddit } from './types';
 import Navigation from './Navigation';
 import React from 'react';
 import StoryList from './StoryList';
+import Header from './header';
 
 interface State {
-  // The active Reddit URL whose items are being rendered.
+  // The active Reddit URL whose items are being rendered
   activeNavigationUrl: string;
 
-  // List of possible Subreddits for the user to choose in the right navigation.
+  // List of possible Subreddits for the user to choose
   navigationItems: Array<Subreddit>;
 
-  // The stories for the current `activeNavigationUrl` whose title and other info are shown once the
-  // user navigates to a Subreddit.
+  // Stories for the current activenavigationUrl
   storyItems: Array<Story>;
 
-  // Name of the current Subreddit being viewed. This is shown at the top of the page.
+  // Name of the current Subreddit
   title: string;
 }
 
@@ -28,7 +27,7 @@ export default class App extends React.Component<{}, State> {
       activeNavigationUrl: '',
       navigationItems: [],
       storyItems: [],
-      title: 'Please select a sub',
+      title: '',
     };
   }
 
@@ -59,13 +58,7 @@ export default class App extends React.Component<{}, State> {
     const script = document.createElement('script');
     script.src = `https://www.reddit.com${item.data.url}.json?sort=top&t=month&jsonp=${cbname}`;
     window[cbname] = (jsonData: ResponseStories) => {
-      // Use the response only if this is still the latest script to run. If the user clicked
-      // another Subreddit in the meantime, the `cbname` will be different and this response should
-      // be ignored.
-      //
-      // The `<script>` must stay in the document even if the response is not needed because
-      // otherwise the JSONP request will try to call a nonexistent script. Leave it in the `<head>`
-      // so it can clean up after itself but make it do nothing other than clean up.
+
       if (cbname === this.storiesCallbackName) {
         this.setState({ storyItems: jsonData.data.children });
       }
@@ -73,7 +66,6 @@ export default class App extends React.Component<{}, State> {
       delete window[cbname];
       documentHead.removeChild(script);
     };
-
 
     documentHead.appendChild(script);
 
@@ -87,13 +79,14 @@ export default class App extends React.Component<{}, State> {
   render() {
     return (
       <div>
-        <p>Made my me!</p>
-        <h1>{this.state.title}</h1>
+        <Header />
+        
         <Navigation
           activeUrl={this.state.activeNavigationUrl}
           items={this.state.navigationItems}
           itemSelected={this.setSelectedItem}
         />
+        <h2 className="subheader">{this.state.title}</h2>
         <StoryList items={this.state.storyItems} />
       </div>
     );

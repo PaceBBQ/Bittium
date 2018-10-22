@@ -15,7 +15,9 @@ export default class NavigationItem extends React.Component<Props> {
   render() {
     return (
       <li onClick={this.onClick} className={this.props.selected ? 'selected' : ''}>
-        {this.props.item.data.display_name}
+        <button className="linkButton">
+          {this.props.item.data.display_name}
+        </button>
       </li>
     );
   }

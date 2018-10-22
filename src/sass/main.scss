@@ -1,0 +1,23 @@
+@import "font";
+.linkButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    display: inline;
+    margin: 0;
+    padding: 0;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+}
+
+.author {
+    font-size: 12px;
+}
+
+.votes {
+    color:red;
+}

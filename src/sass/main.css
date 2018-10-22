@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto|Rubik");
+body {
+  font-family: "Roboto", sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Rubik", sans-serif; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace; }
+
+.linkButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  padding: 0; }
+  .linkButton:hover, .linkButton:focus {
+    text-decoration: none; }
+
+.author {
+  font-size: 12px; }
+
+.votes {
+  color: red; }
+
+/*# sourceMappingURL=main.css.map */
