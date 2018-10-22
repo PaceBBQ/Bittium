@@ -1,2 +1,3 @@
-Some day, some how
 # Bittium
+
+There will be some info later.
