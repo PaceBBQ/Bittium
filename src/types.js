@@ -11,7 +11,7 @@ export interface Story {
   
   export interface Subreddit {
     data: {
-      display_name: string,
+      display_name_prefixed: string,
       id: string,
       subscribers: number,
       title: string,

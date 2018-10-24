@@ -9,6 +9,7 @@ interface Props {
 // It will pe implemented as a stateless function, i.e. a plain javascript function.
 
 export default function StoryList(props: Props) {
+
   return (
     <table className="table table-dark">
       <thead>
@@ -27,6 +28,9 @@ export default function StoryList(props: Props) {
               <p className="title">
                 <a href={item.data.url}>{item.data.title}</a>
               </p>
+              <p className="excerpt">
+                {item.data.public_description}
+              </p>
               <p className="author">
                 Posted by <span>{item.data.author}</span>
               </p>
@@ -35,5 +39,6 @@ export default function StoryList(props: Props) {
         ))}
       </tbody>
     </table>
-  );
+  )
+
 }

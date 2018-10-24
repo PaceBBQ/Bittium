@@ -11,7 +11,7 @@ interface State {
   // List of possible Subreddits for the user to choose
   navigationItems: Array<Subreddit>;
 
-  // Stories for the current activenavigationUrl
+  // Stories for the current activeNavigationUrl
   storyItems: Array<Story>;
 
   // Name of the current Subreddit
@@ -36,6 +36,7 @@ export default class App extends React.Component<{}, State> {
     if (documentHead == null) throw new Error('No <head> to use for script injection.');
 
     const cbname = `fn${Date.now()}`;
+    console.log(cbname);
     const script = document.createElement('script');
     script.src = `https://www.reddit.com/reddits.json?jsonp=${cbname}`;
     window[cbname] = (jsonData: ResponseSubreddits) => {
