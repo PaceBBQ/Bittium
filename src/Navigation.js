@@ -17,7 +17,6 @@ export default class Navigation extends React.Component<Props> {
     const items = this.props.items
       .sort(
         (a, b) =>
-          // Sort by # of subscribers in descending order
           b.data.subscribers - a.data.subscribers
       )
       .map(item => (
